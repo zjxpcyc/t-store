@@ -1,4 +1,4 @@
-import createState from '../src/index'
+import { createState } from '../src/index'
 
 describe('default', () => {
   test('get value noraml', () => {
