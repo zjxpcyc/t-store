@@ -8,8 +8,13 @@
   },
   "main": "dist/index.js",
   "module": "dist/index.es.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zjxpcyc/t-store"
+  },
+  "homepage": "https://github.com/zjxpcyc/t-store",
   "keywords": ["tiny store", "redux"],
-  "author": "yansen <418580217@qq.com>",
+  "author": "yansen <418580217@qq.com> (https://github.com/zjxpcyc)",
   "license": "MulanPSL",
   "devDependencies": {
     "@babel/core": "^7.6.4",

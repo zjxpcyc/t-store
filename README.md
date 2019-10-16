@@ -38,12 +38,12 @@ unSubscribe()
 
 # 特性
 
-[x] 轻量, 无 `action` `reducer` 等概念
+* [x] 轻量, 无 `action` `reducer` 等概念
 
-[x] 支持订阅
+* [x] 支持订阅
 
-[ ] 支持类 `redux` `store` 概念
+* [ ] 支持类 `redux` `store` 概念
 
-[ ] 支持扩展
+* [ ] 支持扩展
 
-[ ] 提供扩展辅助函数
+* [ ] 提供扩展辅助函数
