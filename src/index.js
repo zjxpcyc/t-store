@@ -1,3 +1,5 @@
 import createState from "./createState"
 
-export default createState
+export default {
+  createState
+}
