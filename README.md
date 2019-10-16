@@ -4,7 +4,7 @@
 
 ## 安装
 
-`npm install t-store -S`
+`npm install @zjxpcyc/t-store -S`
 
 ## 适用对象
 
@@ -15,7 +15,7 @@
 ## 使用
 
 ```javascript
-import createState from 't-store'
+import createState from '@zjxpcyc/t-store'
 
 // 类似 react hook 写法
 // 返回值是一个函数

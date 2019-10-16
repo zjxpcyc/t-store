@@ -1,5 +1,5 @@
 {
-  "name": "t-store",
+  "name": "@zjxpcyc/t-store",
   "version": "0.0.1",
   "description": "这是一个简易版的类 `redux` 库, 同时也受到 `react` `hook` 的部分启发，提供一个函数式的 微型 store 管理。",
   "scripts": {
