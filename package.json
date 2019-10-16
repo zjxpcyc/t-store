@@ -1,0 +1,20 @@
+{
+  "name": "t-store",
+  "version": "0.0.1",
+  "description": "这是一个简易版的类 `redux` 库, 同时也受到 `react` `hook` 的部分启发，提供一个函数式的 微型 store 管理。",
+  "scripts": {
+    "build": "rollup --config",
+    "test": "jest"
+  },
+  "main": "dist/index.js",
+  "module": "dist/index.es.js",
+  "keywords": ["tiny store", "redux"],
+  "author": "yansen <418580217@qq.com>",
+  "license": "MulanPSL",
+  "devDependencies": {
+    "@babel/core": "^7.6.4",
+    "@babel/preset-env": "^7.6.3",
+    "babel-jest": "^24.9.0",
+    "jest": "^24.9.0"
+  }
+}
