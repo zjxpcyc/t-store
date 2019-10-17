@@ -1,4 +1,7 @@
 # t-store
+[![NPM version](https://img.shields.io/npm/v/%40zjxpcyc%2Ft-store.svg?style=flat)](https://www.npmjs.com/package/@zjxpcyc/t-store)
+[![Build Status](https://travis-ci.org/zjxpcyc/t-store.svg?branch=master)](https://travis-ci.org/zjxpcyc/t-store)
+[![codecov](https://codecov.io/gh/zjxpcyc/t-store/branch/master/graph/badge.svg)](https://codecov.io/gh/zjxpcyc/t-store)
 
 这是一个简易版的类 `redux` 库, 同时也受到 `react` `hook` 的部分启发，提供一个函数式的 微型 store 管理。
 
