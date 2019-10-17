@@ -4,7 +4,7 @@
   "description": "这是一个简易版的类 `redux` 库, 同时也受到 `react` `hook` 的部分启发，提供一个函数式的 微型 store 管理。",
   "scripts": {
     "build": "rollup --config",
-    "test": "jest"
+    "test": "jest && codecov"
   },
   "main": "dist/index.js",
   "module": "dist/index.es.js",
@@ -25,5 +25,9 @@
     "babel-jest": "^24.9.0",
     "codecov": "^3.6.1",
     "jest": "^24.9.0"
+  },
+  "jest": {
+    "coverageDirectory": "./coverage/",
+    "collectCoverage": true
   }
 }
