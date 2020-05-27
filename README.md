@@ -18,18 +18,23 @@
 ## 使用
 
 ```javascript
-import createState from '@zjxpcyc/t-store'
+import { createState } from '@zjxpcyc/t-store'
 
 // 类似 react hook 写法
 // 返回值是一个函数
 const useFoo = createState({foo: 'bar'})
 
-// 取值, 改变值统一使用 changeFoo 函数
-const [value, changeFoo] = useFoo()
+// 如果传入一个普通的 dom event
+// 则会进行简单的解析取出可用的 value
+const useFoo = createState(event)
 
-// 如果想监控值的改变, 传入一个监控函数即可
-// 监控函数会立即执行一次
-const [value, changeFoo, unSubscribe] = useFoo((val) => { /* 这里可以监控 val 的改变, 比如进行 setState */ })
+// 取值, 改变值统一使用 changeFoo 函数
+// subscribe(listener) 可以用来监控改变
+const [value, changeFoo, subscribe] = useFoo()
+
+// 也可以直接传入一个监控函数
+// 但是这个监控函数会立即执行一次
+const [value, changeFoo, subscribe, unSubscribe] = useFoo((val) => { /* 这里可以监控 val 的改变 */ })
 
 // 后面再修改值就会被监控到
 changeFoo({foo: 'updated'})

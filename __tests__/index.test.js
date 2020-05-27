@@ -9,6 +9,14 @@ describe('default', () => {
     expect(val.name).toBe(user.name)
   });
 
+  test('get value from dom', () => {
+    const domEvt = { target: { value: 1 }, bubbles: true, type: 'change' }
+    const useEvt = createState(domEvt)
+    const [val] = useEvt()
+
+    expect(val).toBe(1)
+  });
+
   test('listen set noraml', () => {
     const otherData = { data: 'This object will not be used' }
     const useOther = createState(otherData)
@@ -44,7 +52,7 @@ describe('default', () => {
     const fooUser = { ...user, name: 'foo' }
     const barUser = { ...user, name: 'bar' }
     let result = []
-    const [, setUser, unSubscribe] = useUser((val) => {
+    const [, setUser, , unSubscribe] = useUser((val) => {
       result.push(val)
     })
 

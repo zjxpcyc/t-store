@@ -13,35 +13,59 @@
  * See the Mulan PSL v1 for more details.
  */
 
-import { isFunction } from './utils'
+import { isFunction, isEvent, getValueOfEvent, noop } from './utils';
 
-export default function createState(value) {
-  let currentState = isFunction(value) ? value() : value
-  let listeners = []
+export default function createState(initialValue) {
+  let currentState = getValue(initialValue);
+  let listeners = [];
 
-  function setter(value) {
-    const nextState = isFunction(value) ? value() : value
-    listeners.forEach(listen => listen(nextState))
-    currentState = nextState
+  function getValue(v) {
+    let val = null;
+    if (isEvent(v)) {
+      val = getValueOfEvent(v);
+    }
+
+    return val === null ? v : val;
+  }
+
+  function update(newValue) {
+    const preState = currentState;
+    currentState = getValue(newValue);
+    notify(currentState, preState);
+  }
+
+  function subscribe(listener) {
+    if (isFunction(listener)) {
+      listeners.push(listener)
+
+      return unSubscribe(listener)
+    }
+
+    return noop;
   }
 
   function unSubscribe(listener) {
     return function() {
-      if (isFunction(listener)) {
-        const inx = listeners.indexOf(listener)
-        listeners.splice(inx, 1)
+      const inx = listeners.indexOf(listener);
+      if (inx > -1) {
+        listeners.splice(inx, 1);
       }
     }
   }
 
+  function notify(cur, prev) {
+    listeners.forEach(f => f(cur, prev));
+  }
+
   return function(listener) {
     if (isFunction(listener)) {
-      listeners.push(listener)
+      subscribe(listener);
 
       // 立即执行一次
-      listener(currentState)
+      listener(currentState);
+      return [currentState, update, subscribe, unSubscribe(listener)];
     }
 
-    return [currentState, setter, unSubscribe(listener)]
+    return [currentState, update, subscribe];
   }
 }
